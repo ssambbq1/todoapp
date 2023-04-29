@@ -1,26 +1,44 @@
 <template>
   <div class="home">
+    <v-text-field
+    v-model="newTaskTitle"
+    @click:append-inner="addTask"
+    @keyup.enter="addTask"
+    class="pa-3"
+            variant="underlined"
+            label="Add Task"
+            append-inner-icon="mdi-plus"
+            hide-details
+            clearable
+          ></v-text-field>
     <v-list 
     class="pt-0" flat >
   
-<div v-for="task in tasks" :key="task.id">
-      <v-list-item value="notifications"
-      @click="doneTask(task.id)"
-      :style="task.done?'background-color:blue' : ''"
+<div v-for="todo in todos" :key="todo.id">
+      <v-list-item
+      @click="doneTask(todo.id)"
+      :style="todo.done ? 'background-color: blue' : ''"
       >
         <template v-slot:prepend="{ isActive }">
 
           <v-list-item-action start>
         
-            <v-checkbox-btn :model-value="task.done" color="primary"></v-checkbox-btn>
+            <v-checkbox-btn :model-value="todo.done" color=""></v-checkbox-btn>
           </v-list-item-action>
         </template>
         <v-list-item-title 
-        :class="{'text-decoration-line-through' : task.done}"
+        :class="{'text-decoration-line-through' : todo.done }"
         >
-        {{ task.title }}
+        {{ todo.title }}
+        <v-btn
+            @click.stop="deleteTask(todo.id)"
+            color="primary lighten-3"
+            icon="mdi-delete"
+            variant="text"
+          ></v-btn>
       </v-list-item-title>
 
+      
       </v-list-item>
       <v-divider></v-divider>
 
@@ -31,42 +49,89 @@
 
 </template>
 
+
+
+
 <script setup>
-//task = localStorage.getItem(task)
-</script>
 
-<script>
-export default {
-  name: 'Home',
-  data() {
-    return {
-      tasks: [
-        {
-          id:1,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id:2,
-          title: 'Eat',
-          done: false
+import {ref, onMounted} from 'vue'
+import {db} from '@/firebase'
+import { 
+  collection, onSnapshot, 
+  addDoc, doc, deleteDoc ,updateDoc,
+   query, orderBy, limit 
+  } from 'firebase/firestore'
 
-        },
-        {
-          id:3,
-          title: 'Brush',
-          done: false
+/*
+  firebase refs 
+ */
+  const todosCollectionRef = collection(db, 'todos')
+  const todosCollectionQuery = query(todosCollectionRef, orderBy('date', 'desc'))
 
-        }
-      ]
-    }
-  },
-  methods: {
-    doneTask(id) {
-      //localStorage.setItem (task)
-      let task = this.tasks.filter(task => task.id === id)[0]
-      task.done=!task.done
-    }
+
+
+
+const todos= ref([])
+
+onMounted(() => {
+onSnapshot(todosCollectionQuery , (querySnapshot) => {
+  const fbTodos = [];
+  querySnapshot.forEach((doc) => {
+    const todo = {
+    id: doc.id,
+    title: doc.data().title,
+    done: doc.data().done
   }
+  fbTodos.push(todo)
+  })
+  todos.value = fbTodos
+})
+})
+
+
+
+
+const newTaskTitle = ref('')
+
+      function addTask() {
+
+       addDoc(todosCollectionRef, {
+          title: newTaskTitle.value,
+          done: false,
+          date: Date.now()
+});
+
+ // const newTask = { 
+ //   id: Date.now(),
+ //   title: newTaskTitle.value,
+ //   done: false
+ // }
+ // todos.value.push(newTask)
+  newTaskTitle.value = ''
 }
+
+function doneTask(id) {
+  const todo = todos.value.find(todo => todo.id === id)
+
+ updateDoc(doc(todosCollectionRef, id), {
+  done: !todo.done
+})
+}
+
+//function doneTask(id) {
+//  const todo = todos.value.find(todo => todo.id === id)
+//  todo.done = !todo.done
+//}
+
+
+
+function deleteTask(id) {
+  deleteDoc(doc(todosCollectionRef, id))
+}
+
+
+//function deleteTask(id) {
+//  todos.value = todos.value.filter(todo => todo.id !== id)
+//}
+
 </script>

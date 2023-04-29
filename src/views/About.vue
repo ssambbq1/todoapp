@@ -1,17 +1,29 @@
 <template>
     <div class="about pa-6 ma-6">
-   <h1>About Vuetify Todo</h1>
-   <p>
-    Update your layout without creating new classes. Spacing helpers are useful for modifying 
-    the padding and margin of an element.Try out an interactive screencast on how Vuetify spacing works
-   </p>
-   <p>
-    Update your layout without creating new classes. Spacing helpers are useful for modifying 
-    the padding and margin of an element.Try out an interactive screencast on how Vuetify spacing works
-   </p>
-   <p>
-    Update your layout without creating new classes. Spacing helpers are useful for modifying 
-    the padding and margin of an element.Try out an interactive screencast on how Vuetify spacing works
-   </p>
+
+    <p><h1>효과적으로 우선순위를 정하기 위한 빠른 팁</h1></p>
+적절하게 우선순위를 정해야 할 필요성을 인식해가면서 이것이 단순한 작업 목록을 만드는 것보다는 복잡해 스트레스를 받을 수 있습니다. 의도한 대로 우선순위를 정하는 데 도움이 되도록 위에서 언급한 주요 전략들이 아래에 요약되어 있습니다. 
+
+<p>모든 것을 기록하기: 개인적 업무와 회사 업무가 한 곳에 있어야 합니다.</p>
+<p>장기 목표 평가하기: 여러분의 장기적인 목표 및 그 목표에 도달하기 위해 해야 할 작업을 생각합니다. </p>
+<p>더 큰 목표 세분화하기: 장기적인 목표의 달성 방법을 이해하려면 해당 목표를 연간, 월별, 주 성과로 분류합니다. </p>
+<p>정확한 마감일 정하기: 마감일이 완벽하게 보이게 하고 꼭 필요하지는 않은 경우 나만을 위한 마감일을 정하세요. </p>
+<p>긴급성과 중요성 비교 방법 사용하기: 긴급하면서 중요한 작업을 우선으로 처리하고, 긴급하지 않은 중요한 작업은 
+  특정 시간을 정해 두고 그 외 모든 작업은 위임하거나 삭제합니다.</p> 
+  <p>일일 MIT 목록 만들기: 그날 반드시 해야 하는 세 가지 중요한 업무를 기록합니다. 이러한 
+작업은 항상 여러분의 더 큰 미래 목표와 관련이 있어야 합니다. </p>
+<p>방해 요소 피하기: 특히 작업 난이도가 높아질 때 겹치는 작업은 의도적으로 피하세요. </p>
+<p>노력 고려하기: 작업 목록이 너무 많아지면 들어가는 노력에 따라 우선순위를 정하고, 보다 쉬운 작업은 더 빨리 수월하게 처리합니다.</p>
+
+<p><h1>시간을 우선적으로 생각하고 현실성을 반영하세요. </h1></p>
+<p>아무리 우선순위를 잘 정해도 하루에 달성할 수 있는 것이 너무 많을 수 있고 어떤 방해 요소는 피할 수도 없습니다. 
+현실적인 목표를 설정하고 작업의 우선순위를 정하는 것이 중요합니다. 
+그렇지 않으면 주변 사람들에게 잘못된 기대를 갖게 하고 본인은 계속 뒤처지는 것처럼 느끼게 될 것입니다.</p>
+
+<p>우선순위를 정하는 목적은 장기적으로 차이를 만들고 올바른 방향으로 나아갈 수 있는 중요한 작업에 
+시간을 쓰기 위함이라는 것을 잊지 마세요. 우선순위가 잘 관리되면 반응을 덜 하게 되고 더 집중적이고 
+주도적으로 일을 처리하고 있다는 느낌을 받을 것입니다. 우선순위 설정의 목표는 진정한 진전을 의미하는 업무를 완수하고, 
+나머지 모든 “바쁨”은 한쪽으로 치워 두는 것입니다. </p>
+
 </div>
   </template>

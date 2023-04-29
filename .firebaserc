@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "todoapp-fe9b5",
+    "staging": "todoapp-fe9b5"
+  },
+  "targets": {},
+  "etags": {}
+}

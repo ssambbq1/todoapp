@@ -4,7 +4,7 @@
       <!--  -->
  <v-list-item
           prepend-avatar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRycBNsgGzrB-55SP7axndzlj4ZkhkDTe2OMA&usqp=CAU"
-          title="Vuetify Todo"
+          title="To Do List"
           nav
         >
           <template v-slot:append>
@@ -62,7 +62,7 @@
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
 
-        <v-app-bar-title>Vuetify Todo</v-app-bar-title>
+        <v-app-bar-title>To do list (우선순위 목록)</v-app-bar-title>
 
         <v-spacer></v-spacer>
 
